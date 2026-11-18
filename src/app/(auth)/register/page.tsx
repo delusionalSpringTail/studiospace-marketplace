@@ -27,19 +27,6 @@ function RegisterFormSkeleton() {
 export default function RegisterPage() {
   return (
     <div className="min-h-screen flex flex-col bg-zinc-50 dark:bg-zinc-950 text-foreground transition-colors">
-      {/* Top Header Bar with Logo */}
-      <header className="w-full border-b border-border/60 bg-background py-4 px-4 flex justify-center">
-        <Link href="/" className="inline-flex items-center focus:outline-none">
-          <Image
-            src="/logo.png"
-            alt="StudioSpace Logo"
-            width={220}
-            height={64}
-            priority
-            className="h-11 sm:h-12 md:h-14 w-auto object-contain"
-          />
-        </Link>
-      </header>
 
       {/* Centered Card Container */}
       <main className="flex-1 flex flex-col items-center justify-center px-4 py-8 sm:px-6">

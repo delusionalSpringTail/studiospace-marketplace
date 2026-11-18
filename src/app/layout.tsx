@@ -5,6 +5,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "react-hot-toast";
+import Navbar from "@/components/HomePage/Navbar";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -26,7 +27,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-  
+  <Navbar></Navbar>
           {children}
           <Toaster />
         </ThemeProvider>
