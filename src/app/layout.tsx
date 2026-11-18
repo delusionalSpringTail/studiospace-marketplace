@@ -3,7 +3,7 @@ import { Poppins } from "next/font/google";
 
 
 import "./globals.css";
-import { ThemeProvider } from "@/provider/theme-provider";
+import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/HomePage/navbar";
 
 const poppins = Poppins({
@@ -26,7 +26,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Navbar />
+  
           {children}
         </ThemeProvider>
       </body>
