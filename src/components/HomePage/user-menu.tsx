@@ -75,7 +75,7 @@ export function UserMenu({ user }: UserMenuProps) {
       label: "Add New Studio",
       href: "/studios/new",
       icon: PlusCircle,
-      iconClass: "text-amber-500 dark:text-amber-400",
+      iconClass: "text-green-500 dark:text-green-400",
     },
     {
       label: "My Studio Listings",

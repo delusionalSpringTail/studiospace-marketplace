@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 import { SocialAuthButtons } from "./social-auth-buttons";
 import { PasswordChecklist } from "./password-checklist";
 import { signIn } from "@/lib/auth-client";
+import { useSearchParams } from "next/navigation";
 
 export default function SignInForm() {
   const [email, setEmail] = useState("");
@@ -14,6 +15,9 @@ export default function SignInForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [touched, setTouched] = useState({ email: false, password: false });
+
+const searchParams = useSearchParams();
+  const callbackUrl = searchParams.get("callbackUrl") || "/";
 
   // Email Validation Rule
   const isValidEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(email);
@@ -42,7 +46,7 @@ export default function SignInForm() {
       const { error } = await signIn.email({
         email:email,
         password:password,
-        callbackURL: "/",
+        callbackURL: callbackUrl,
       });
 
       if (error) {

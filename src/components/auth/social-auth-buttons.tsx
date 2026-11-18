@@ -1,6 +1,7 @@
 "use client";
 
 import { signIn } from "@/lib/auth-client";
+import { useSearchParams } from "next/navigation";
 import React from "react";
 import toast from "react-hot-toast";
 
@@ -9,12 +10,16 @@ interface SocialAuthButtonsProps {
 }
 
 export function SocialAuthButtons({ isLoading = false }: SocialAuthButtonsProps) {
+
+  const searchParams = useSearchParams();
+  const callbackUrl = searchParams.get("callbackUrl") || "/dashboard";
+
   const handleGoogleSignIn = async () => {
     try {
   
       await signIn.social({
         provider: "google",
-        callbackURL: "/",
+        callbackURL: callbackUrl,
       });
       toast.success("Login Successful");
     } catch {

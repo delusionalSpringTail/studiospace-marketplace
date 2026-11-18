@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Eye, EyeOff, Check, X, User, Mail, Lock } from "lucide-react";
 import Link from "next/link";
 import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { SocialAuthButtons } from "./social-auth-buttons";
 import { signUp } from "@/lib/auth-client";
 
@@ -20,6 +20,9 @@ export default function RegisterForm() {
   const [isLoading, setIsLoading] = useState(false);
 
   const router = useRouter();
+
+  const searchParams = useSearchParams();
+  const callbackUrl = searchParams.get("callbackUrl") || "/dashboard";
 
   const [touched, setTouched] = useState({
     name: false,
@@ -66,8 +69,8 @@ export default function RegisterForm() {
       // TODO: Uncomment when Better Auth is configured
 
       const { data, error } = await signUp.email({
-        email:email,
-        password:password,
+        email: email,
+        password: password,
         name: name.trim(),
       });
 
@@ -78,12 +81,12 @@ export default function RegisterForm() {
 
       if (data?.user?.name) {
         toast.success("Account created successfully! Log in to continue.");
-        router.push("/login");
+        router.push(callbackUrl);
         return;
       }
 
       toast.success("Account created successfully! Log in to continue.");
-      router.push("/login");
+      router.push(callbackUrl);
     } catch {
       toast.error("Something went wrong. Please try again.");
     } finally {
