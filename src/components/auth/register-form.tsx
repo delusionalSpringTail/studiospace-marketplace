@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Eye, EyeOff, Check, X, User, Mail, Lock } from "lucide-react";
+import { Eye, EyeOff, Check, X, User, Mail } from "lucide-react";
 import Link from "next/link";
 import toast from "react-hot-toast";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -95,7 +95,7 @@ export default function RegisterForm() {
   };
 
   return (
-    <div className="w-full max-w-[440px] rounded-xl border border-border bg-card text-card-foreground p-6 sm:p-8 shadow-sm">
+    <div className="w-full max-w-110 rounded-xl border border-border bg-card text-card-foreground p-6 sm:p-8 shadow-sm">
       {/* Header Section */}
       <div className="text-center mb-6">
         <h1 className="text-2xl font-bold tracking-tight text-foreground">

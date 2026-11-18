@@ -1,5 +1,4 @@
 import React, { Suspense } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import RegisterForm from "@/components/auth/register-form";
 

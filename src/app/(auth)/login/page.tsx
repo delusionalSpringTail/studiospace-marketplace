@@ -1,11 +1,10 @@
 import React, { Suspense } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import SignInForm from "@/components/auth/sign-in-form";
 
 function LoginFormSkeleton() {
   return (
-    <div className="w-full max-w-[440px] rounded-xl border border-border bg-card p-6 sm:p-8 shadow-sm animate-pulse">
+    <div className="w-full max-w-110 rounded-xl border border-border bg-card p-6 sm:p-8 shadow-sm animate-pulse">
       <div className="mx-auto h-7 w-40 rounded bg-muted mb-2" />
       <div className="mx-auto h-4 w-56 rounded bg-muted mb-6" />
       <div className="space-y-3 mb-6">
