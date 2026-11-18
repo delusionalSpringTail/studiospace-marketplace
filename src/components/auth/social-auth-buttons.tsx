@@ -1,8 +1,8 @@
 "use client";
 
+import { signIn } from "@/lib/auth-client";
 import React from "react";
 import toast from "react-hot-toast";
-// import { signIn } from "@/lib/auth-client"; // Uncomment when Better Auth is ready
 
 interface SocialAuthButtonsProps {
   isLoading?: boolean;
@@ -12,13 +12,12 @@ export function SocialAuthButtons({ isLoading = false }: SocialAuthButtonsProps)
   const handleGoogleSignIn = async () => {
     try {
       // TODO: Uncomment when Better Auth is configured
-      /*
+  
       await signIn.social({
         provider: "google",
         callbackURL: "/",
       });
-      */
-      toast("Google Sign-In triggered (Configure Better Auth to connect)");
+      
     } catch {
       toast.error("Failed to sign in with Google");
     }

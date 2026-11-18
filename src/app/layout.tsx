@@ -4,7 +4,7 @@ import { Poppins } from "next/font/google";
 
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Navbar } from "@/components/HomePage/navbar";
+import { Toaster } from "react-hot-toast";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -28,6 +28,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
   
           {children}
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

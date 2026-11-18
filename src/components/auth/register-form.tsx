@@ -6,7 +6,7 @@ import Link from "next/link";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { SocialAuthButtons } from "./social-auth-buttons";
-// import { signUp } from "@/lib/auth-client"; // Uncomment when Better Auth is setup
+import { signUp } from "@/lib/auth-client";
 
 export default function RegisterForm() {
   const [name, setName] = useState("");
@@ -64,10 +64,10 @@ export default function RegisterForm() {
     setIsLoading(true);
     try {
       // TODO: Uncomment when Better Auth is configured
-      /*
-      const { data: resData, error } = await signUp.email({
-        email,
-        password,
+
+      const { data, error } = await signUp.email({
+        email:email,
+        password:password,
         name: name.trim(),
       });
 
@@ -76,12 +76,11 @@ export default function RegisterForm() {
         return;
       }
 
-      if (resData?.user?.name) {
+      if (data?.user?.name) {
         toast.success("Account created successfully! Log in to continue.");
         router.push("/login");
         return;
       }
-      */
 
       toast.success("Account created successfully! Log in to continue.");
       router.push("/login");

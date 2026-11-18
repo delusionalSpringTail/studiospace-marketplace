@@ -6,7 +6,7 @@ import Link from "next/link";
 import toast from "react-hot-toast";
 import { SocialAuthButtons } from "./social-auth-buttons";
 import { PasswordChecklist } from "./password-checklist";
-// import { signIn } from "@/lib/auth-client"; // Uncomment when Better Auth is setup
+import { signIn } from "@/lib/auth-client";
 
 export default function SignInForm() {
   const [email, setEmail] = useState("");
@@ -39,10 +39,10 @@ export default function SignInForm() {
     setIsLoading(true);
     try {
       // TODO: Uncomment when Better Auth is configured
-      /*
+     
       const { error } = await signIn.email({
-        email,
-        password,
+        email:email,
+        password:password,
         callbackURL: "/",
       });
 
@@ -50,7 +50,7 @@ export default function SignInForm() {
         toast.error(error.message || "Invalid credentials");
         return;
       }
-      */
+      
 
       toast.success("Login Successful");
     } catch {
