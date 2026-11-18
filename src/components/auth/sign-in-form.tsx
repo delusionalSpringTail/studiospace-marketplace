@@ -38,7 +38,6 @@ export default function SignInForm() {
 
     setIsLoading(true);
     try {
-      // TODO: Uncomment when Better Auth is configured
      
       const { error } = await signIn.email({
         email:email,

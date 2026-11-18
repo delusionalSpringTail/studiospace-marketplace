@@ -11,13 +11,12 @@ interface SocialAuthButtonsProps {
 export function SocialAuthButtons({ isLoading = false }: SocialAuthButtonsProps) {
   const handleGoogleSignIn = async () => {
     try {
-      // TODO: Uncomment when Better Auth is configured
   
       await signIn.social({
         provider: "google",
         callbackURL: "/",
       });
-      
+      toast.success("Login Successful");
     } catch {
       toast.error("Failed to sign in with Google");
     }
