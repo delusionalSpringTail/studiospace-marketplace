@@ -22,7 +22,7 @@ export default function RegisterForm() {
   const router = useRouter();
 
   const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get("callbackUrl") || "/dashboard";
+  const callbackUrl = searchParams.get("callbackUrl") || "/";
 
   const [touched, setTouched] = useState({
     name: false,
@@ -66,7 +66,7 @@ export default function RegisterForm() {
 
     setIsLoading(true);
     try {
-      // TODO: Uncomment when Better Auth is configured
+      // when Better Auth is configured
 
       const { data, error } = await signUp.email({
         email: email,

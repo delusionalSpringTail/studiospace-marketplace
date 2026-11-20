@@ -35,7 +35,7 @@ const SLIDES: Slide[] = [
   {
     id: 1,
     image:
-      "https://i.ibb.co.com/WWZJpP9P/Gemini-Generated-Image-6apok56apok56apo-1.jpg",
+      "https://i.ibb.co.com/4x8mZ8W/image.png",
     alt: "Creator sitting inside an inspiring studio space",
     icon: Clapperboard,
     label: "Create",
@@ -90,7 +90,7 @@ export default function Banner() {
       onMouseLeave={() => setIsPaused(false)}
       aria-roledescription="carousel"
       aria-label="Featured Studio Categories"
-      className="relative w-full h-[520px] sm:h-[600px] lg:h-[calc(100vh-4rem)] lg:min-h-[600px] lg:max-h-[840px] overflow-hidden bg-zinc-900 dark:bg-zinc-950 select-none border-b border-border/50"
+      className="relative w-full h-130 sm:h-150 lg:h-[calc(100vh-4rem)] lg:min-h-150 lg:max-h-210 overflow-hidden bg-zinc-900 dark:bg-zinc-950 select-none border-b border-border/50"
     >
       {/* Background Images with Smooth Crossfade */}
       {SLIDES.map((slide, index) => {

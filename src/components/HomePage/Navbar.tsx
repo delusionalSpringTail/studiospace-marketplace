@@ -13,8 +13,8 @@ import { MobileNav } from "./mobile-nav";
 const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Explore Studios", href: "/studios" },
-  { label: "How It Works", href: "/how-it-works" },
-  { label: "About Us", href: "/about" },
+  { label: "How It Works", href: "/#how-it-works" },
+  { label: "About Us", href: "/#about-us" },
 ];
 
 export default function Navbar() {
@@ -23,6 +23,21 @@ export default function Navbar() {
   const pathname = usePathname();
 
   const isAuthenticated = Boolean(session?.user);
+
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    if (href.startsWith("/#") && pathname === "/") {
+      const targetId = href.replace("/#", "");
+      const element = document.getElementById(targetId);
+      if (element) {
+        e.preventDefault();
+        element.scrollIntoView({ behavior: "smooth" });
+        window.history.pushState(null, "", href);
+      }
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/80 bg-background/85 backdrop-blur-md transition-colors">
@@ -52,6 +67,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                   isActive
                     ? "text-foreground bg-accent/70"

@@ -21,6 +21,22 @@ export function MobileNav({
 
   if (!isOpen) return null;
 
+  const handleLinkClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    onClose();
+    if (href.startsWith("/#") && pathname === "/") {
+      const targetId = href.replace("/#", "");
+      const element = document.getElementById(targetId);
+      if (element) {
+        e.preventDefault();
+        element.scrollIntoView({ behavior: "smooth" });
+        window.history.pushState(null, "", href);
+      }
+    }
+  };
+
   return (
     <div className="md:hidden border-t border-border bg-background px-4 pt-3 pb-5 space-y-3 animate-in fade-in slide-in-from-top-1 duration-150">
       <nav className="flex flex-col space-y-1">
@@ -30,7 +46,7 @@ export function MobileNav({
             <Link
               key={link.href}
               href={link.href}
-              onClick={onClose}
+              onClick={(e) => handleLinkClick(e, link.href)}
               className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                 isActive
                   ? "bg-accent text-foreground font-semibold"

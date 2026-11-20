@@ -12,7 +12,7 @@ interface SocialAuthButtonsProps {
 export function SocialAuthButtons({ isLoading = false }: SocialAuthButtonsProps) {
 
   const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get("callbackUrl") || "/dashboard";
+  const callbackUrl = searchParams.get("callbackUrl") || "/";
 
   const handleGoogleSignIn = async () => {
     try {
