@@ -1,5 +1,6 @@
 import AboutUs from "@/components/HomePage/AboutUs";
 import Banner from "@/components/HomePage/Banner";
+import FAQ from "@/components/HomePage/FAQ";
 import HowItWorks from "@/components/HomePage/HowItWorks";
 
 export default function HomePage() {
@@ -8,6 +9,7 @@ export default function HomePage() {
       <Banner />
       <HowItWorks></HowItWorks>
       <AboutUs></AboutUs>
+      <FAQ></FAQ>
     </main>
   );
 }
