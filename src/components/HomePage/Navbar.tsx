@@ -26,7 +26,7 @@ export default function Navbar() {
 
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    href: string
+    href: string,
   ) => {
     if (href.startsWith("/#") && pathname === "/") {
       const targetId = href.replace("/#", "");
@@ -54,7 +54,8 @@ export default function Navbar() {
               width={180}
               height={48}
               priority
-              className="h-10 sm:h-12 w-auto object-contain"
+              style={{ height: "auto" }}
+              className="w-36 lg:w-44 object-contain"
             />
           </Link>
         </div>

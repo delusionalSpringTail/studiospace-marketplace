@@ -88,7 +88,7 @@ export function ProfileSettings() {
   const hasChanges =
     currentName.trim() !== (user.name || "") || selectedFile !== null;
 
-  const handleSave = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSave = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const trimmedName = currentName.trim();
@@ -153,6 +153,7 @@ export function ProfileSettings() {
               <img
                 src={currentImage}
                 alt={user.name || "Profile"}
+                referrerPolicy="no-referrer"
                 className="h-20 w-20 sm:h-24 sm:w-24 rounded-full object-cover border border-border"
               />
             ) : (
